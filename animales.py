@@ -86,6 +86,17 @@ class SistemaAdopcion:
     def cargarPerro(self,nuevo_perro):
         self.perros.append(nuevo_perro)
         print(f"{self.perros}")
+    def eliminarPerros(self, nombre):
+
+         for perro in self.perros:
+             if perro.nombre == nombre:
+               self.perros.remove(perro)
+               print(f"Perro {nombre} eliminado.")
+               break
+         else:
+    
+            print("No se encontró un perro con ese nombre.")
+         print(f"{self.perros}")
     def registrarUsuario(self,nuevo_usuario):
         self.usuarios.append(nuevo_usuario)
                                                      
