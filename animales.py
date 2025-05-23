@@ -99,7 +99,19 @@ class SistemaAdopcion:
          print(f"{self.perros}")
     def registrarUsuario(self,nuevo_usuario):
         self.usuarios.append(nuevo_usuario)
-                                                     
+    def postularPerro(self,id):
+        for perro in self.perros:
+            if perro.id == id:
+                if perro.estado== "Disponible":
+                    perro.cambiarEstado("Reservado")
+                    print(f"Perro {id} reservado con éxito!")
+                    return perro
+                else:
+                    print(f"Este perro {id} se encuentra resservado, no es posible postularse")
+                    return None
+        print(f"No se encontró ningun perro con el ID {id}")
+        return None
+ 
 adoptante1= SistemaAdopcion()
 adoptante1.registrarUsuario(usuario1)
 print(usuario1)
