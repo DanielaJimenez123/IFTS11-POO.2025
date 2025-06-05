@@ -66,11 +66,11 @@ class UsuarioAdoptante:
       return f"{self.nombre} {self.apellido} - {self.email}"
 
 
-#usuario1= UsuarioAdoptante("Daniela","Jiménez",9523846,"danielaji@gmail.com",11347284,"caniche",[])
-#usuario1.mostrarDatosUsuario()
-#usuario1.modificarDatos("Dani","Miranda",9624866,"lita@gmail.com",116611763, "pitbull")
-#usuario1.historial_adopciones.append(perro1)
-#usuario1.mostrarDatosUsuario()
+usuario1= UsuarioAdoptante("Daniela","Jiménez",9523846,"danielaji@gmail.com",11347284,"caniche",[])
+usuario1.mostrarDatosUsuario()
+usuario1.modificarDatos("Dani","Miranda",9624866,"lita@gmail.com",116611763, "pitbull")
+usuario1.historial_adopciones.append(perro1)
+usuario1.mostrarDatosUsuario()
 class SistemaAdopcion:
     def __init__(self):
         self.perros=[]
@@ -129,13 +129,25 @@ class SistemaAdopcion:
                 usuario.preferencias
                 preferencias= usuario.preferencias
         for perro in self.perros:
-            if perro.estado ==("disponible"):
-                if perro.raza == preferencias and perro.estado == "disponible":
-                   print(f"Se sugiere el perro: {perro.nombre}")
-                   
-                
-
-        
-    
-
-
+            if perro.raza == preferencias and perro.estado == "disponible":
+                 print(f"Se sugiere el perro: {perro.nombre}")
+                 return perro
+    def mostrarDisponible(self):
+        perros_disponibles = []
+        for perro in self.perros:
+            if perro.estado == "disponible":
+                perros_disponibles.append(perro)
+                print(perro.mostrarInformacion())
+    def mostrarPorEstado(self, estado_buscado):
+        for perro in self.perros:
+            if perro.estado == estado_buscado:
+                perro.mostrarInformacion()
+    def mostrarPorUsuario(self,dni):
+        for usuario in self.usuarios:
+            if usuario.dni == dni:
+                for perro in usuario.historial_adopciones:
+                    perro.mostrarInformacion()
+                    break
+            else:
+                print("No se encontró un usuario con ese DNI")
+usuario1.historial_adopciones.append(perro1)
