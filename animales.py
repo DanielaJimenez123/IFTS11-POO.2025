@@ -27,8 +27,7 @@ class Perro:
         print(f"Estado: {self.estado}")
         print(f"Temperamento: {self.temperamento}")
         print(f"ID: {self.id}")
-perro1 = Perro("Paco","caniche",12,50, 20,"bueno",True,"disponible","Tranquilo", 3443)
-perro1.mostrarInformacion()
+
 class UsuarioAdoptante:                        
     def __init__(self,nombre,apellido,dni,email,telf,preferencias,historial_adopciones):
         self.nombre= nombre
@@ -65,12 +64,6 @@ class UsuarioAdoptante:
     def __str__(self):
       return f"{self.nombre} {self.apellido} - {self.email}"
 
-
-usuario1= UsuarioAdoptante("Daniela","Jiménez",9523846,"danielaji@gmail.com",11347284,"caniche",[])
-usuario1.mostrarDatosUsuario()
-usuario1.modificarDatos("Dani","Miranda",9624866,"lita@gmail.com",116611763, "pitbull")
-usuario1.historial_adopciones.append(perro1)
-usuario1.mostrarDatosUsuario()
 class SistemaAdopcion:
     def __init__(self):
         self.perros=[]
@@ -143,11 +136,17 @@ class SistemaAdopcion:
             if perro.estado == estado_buscado:
                 perro.mostrarInformacion()
     def mostrarPorUsuario(self,dni):
+        encontrado = False
         for usuario in self.usuarios:
             if usuario.dni == dni:
-                for perro in usuario.historial_adopciones:
-                    perro.mostrarInformacion()
-                    break
-            else:
-                print("No se encontró un usuario con ese DNI")
-usuario1.historial_adopciones.append(perro1)
+                encontrado= True
+                print(f"Historial de adopción de: {usuario.nombre} {usuario.apellido}")
+                if usuario.historial_adopciones:
+
+                 for perro in usuario.historial_adopciones:
+                     perro.mostrarInformacion()
+                else:
+                  print("Este usuario aún no ha adoptado ningún perro")
+                break
+        if not encontrado:
+           print("No se encontró usuario con ese DNI")
