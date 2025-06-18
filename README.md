@@ -1,8 +1,8 @@
-# Refugio de Animales 🐾
+# Refugio de Animales 
 
 Proyecto hecho en Python y Django para gestionar adopciones de perros.
 
-## 📌 Funcionalidades principales
+##  Funcionalidades principales
 
 - Registro de perros con datos como nombre, raza, tamaño, edad, peso, vacunación, estado de salud, temperamento, etc.
 - Registro de usuarios adoptantes.
@@ -11,17 +11,16 @@ Proyecto hecho en Python y Django para gestionar adopciones de perros.
 - CRUD desde el panel de administración de Django.
 - Base de datos SQLite con ORM.
 
-## 📚 Tecnologías usadas
+## Tecnologías usadas
 
 - Python 3
 - Django 5
 - SQLite3
 - Git & GitHub
 
-## ⚙️ Cómo correr el proyecto
+##  Cómo correr el proyecto
 
 1. Cloná el repositorio  
-   `git clone https://github.com/TU-USUARIO/TU-REPO.git`
 
 2. Activá el entorno virtual  
    - Windows: `.\env\Scripts\activate`
